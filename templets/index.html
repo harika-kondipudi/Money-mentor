@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Even You - Personal Finance</title>
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Even You<span>.</span></div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+    </div>
+
+    <button class="nav-btn" onclick="startQuestionnaire()">Get Started</button>
+  </nav>
+
+
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+
+      <p class="tag">PERSONAL FINANCE, MADE PERSONAL</p>
+
+      <h1>Your money.<br><span>Your way.</span></h1>
+
+      <p class="hero-description">
+        A simple financial guide that understands your income,
+        spending, goals and comfort level — and helps you make
+        better money decisions.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="main-btn" onclick="startQuestionnaire()">
+          Create My Plan →
+        </button>
+
+        <a href="#how" class="learn-btn">How it works</a>
+      </div>
+
+    </div>
+
+
+    <!-- Dashboard preview -->
+    <div class="preview">
+
+      <div class="preview-card">
+        <p>Monthly balance</p>
+        <h2>₹42,500</h2>
+        <small>Looking good this month</small>
+      </div>
+
+      <div class="mini-card spending">
+        <p>Spending</p>
+        <div class="bar">
+          <span></span>
+        </div>
+        <b>68%</b>
+      </div>
+
+      <div class="mini-card save">
+        <p>Suggested saving</p>
+        <h3>₹15,000</h3>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section">
+
+    <p class="tag">HOW IT WORKS</p>
+    <h2>Money advice that starts with <span>you.</span></h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="number">01</div>
+        <h3>Tell us about you</h3>
+        <p>Share a few simple details about your income, expenses and goals.</p>
+      </div>
+
+      <div class="step">
+        <div class="number">02</div>
+        <h3>We understand you</h3>
+        <p>We look at your financial situation and understand what matters to you.</p>
+      </div>
+
+      <div class="step">
+        <div class="number">03</div>
+        <h3>Get your plan</h3>
+        <p>Receive simple recommendations based on your own financial situation.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section id="features" class="section features-section">
+
+    <p class="tag">WHAT WE OFFER</p>
+    <h2>Everything you need to understand your <span>money.</span></h2>
+
+    <div class="features">
+
+      <div class="feature-card">
+        <div class="icon">₹</div>
+        <h3>Expense Analysis</h3>
+        <p>Understand where your money goes and find areas where you can reduce unnecessary spending.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">↗</div>
+        <h3>Smart Savings</h3>
+        <p>Get a realistic saving suggestion based on your income and monthly expenses.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">◈</div>
+        <h3>Investment Guidance</h3>
+        <p>Learn about different options according to your financial goals and comfort with risk.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">◎</div>
+        <h3>Goal Planning</h3>
+        <p>Whether you want to save, invest or build an emergency fund, create a plan around your goal.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- QUESTIONNAIRE -->
+  <section id="questionnaire" class="questionnaire hidden">
+
+    <div class="question-box">
+
+      <div class="progress">
+        <span id="progressBar"></span>
+      </div>
+
+      <p id="stepText">Step 1 of 6</p>
+
+      <!-- STEP 1 -->
+      <div class="question active" id="step1">
+        <h2>How old are you?</h2>
+        <p>This helps us understand your financial stage.</p>
+
+        <input id="age" type="number" placeholder="Enter your age">
+
+        <button class="main-btn" onclick="nextStep()">Continue →</button>
+      </div>
+
+
+      <!-- STEP 2 -->
+      <div class="question" id="step2">
+        <h2>What's your monthly income?</h2>
+        <p>Enter your approximate monthly income.</p>
+
+        <input id="income" type="number" placeholder="₹ Monthly income">
+
+        <button class="main-btn" onclick="nextStep()">Continue →</button>
+      </div>
+
+
+      <!-- STEP 3 -->
+      <div class="question" id="step3">
+        <h2>How much do you spend?</h2>
+        <p>Enter your average monthly expenses.</p>
+
+        <input id="expenses" type="number" placeholder="₹ Monthly expenses">
+
+        <button class="main-btn" onclick="nextStep()">Continue →</button>
+      </div>
+
+
+      <!-- STEP 4 -->
+      <div class="question" id="step4">
+        <h2>How much have you saved?</h2>
+        <p>Tell us your current savings.</p>
+
+        <input id="savings" type="number" placeholder="₹ Current savings">
+
+        <button class="main-btn" onclick="nextStep()">Continue →</button>
+      </div>
+
+
+      <!-- STEP 5 -->
+      <div class="question" id="step5">
+        <h2>What's your main goal?</h2>
+        <p>Choose what matters most to you right now.</p>
+
+        <div class="options">
+          <button onclick="selectGoal(this, 'Save more')">Save more</button>
+          <button onclick="selectGoal(this, 'Start investing')">Start investing</button>
+          <button onclick="selectGoal(this, 'Reduce expenses')">Reduce expenses</button>
+          <button onclick="selectGoal(this, 'Build emergency fund')">Build emergency fund</button>
+        </div>
+
+        <button class="main-btn" onclick="nextStep()">Continue →</button>
+      </div>
+
+
+      <!-- STEP 6 -->
+      <div class="question" id="step6">
+        <h2>How comfortable are you with risk?</h2>
+        <p>This helps us keep your recommendations suitable for you.</p>
+
+        <div class="options">
+          <button onclick="selectRisk(this, 'Low')">Low</button>
+          <button onclick="selectRisk(this, 'Medium')">Medium</button>
+          <button onclick="selectRisk(this, 'High')">High</button>
+        </div>
+
+        <button class="main-btn" onclick="generateDashboard()">Create My Plan →</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="dashboard hidden">
+
+    <div class="dashboard-head">
+      <div>
+        <p class="tag">YOUR PERSONAL PLAN</p>
+        <h2>Here's what your money looks like.</h2>
+      </div>
+
+      <button class="restart" onclick="restart()">Start Again</button>
+    </div>
+
+
+    <div class="money-cards">
+
+      <div class="money-card">
+        <p>Monthly income</p>
+        <h3 id="showIncome">₹0</h3>
+      </div>
+
+      <div class="money-card">
+        <p>Monthly expenses</p>
+        <h3 id="showExpenses">₹0</h3>
+      </div>
+
+      <div class="money-card">
+        <p>Available balance</p>
+        <h3 id="showBalance">₹0</h3>
+      </div>
+
+      <div class="money-card highlight">
+        <p>Suggested saving</p>
+        <h3 id="showSaving">₹0</h3>
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+      <!-- Spending -->
+      <div class="dashboard-card">
+        <h3>Spending overview</h3>
+
+        <div class="chart">
+          <div style="height:70%">Food</div>
+          <div style="height:50%">Shopping</div>
+          <div style="height:35%">Entertainment</div>
+          <div style="height:60%">Bills</div>
+        </div>
+
+        <div class="chart-labels">
+          <span>Food</span>
+          <span>Shopping</span>
+          <span>Entertainment</span>
+          <span>Bills</span>
+        </div>
+      </div>
+
+
+      <!-- Health -->
+      <div class="dashboard-card health">
+        <h3>Financial health</h3>
+
+        <div class="score" id="healthScore">0</div>
+
+        <p id="healthText">Let's understand your money.</p>
+      </div>
+
+    </div>
+
+
+    <!-- Recommendations -->
+    <div class="recommendations">
+
+      <p class="tag">PERSONALIZED FOR YOU</p>
+      <h2>Your next steps</h2>
+
+      <div id="recommendationsList"></div>
+
+    </div>
+
+  </section>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
